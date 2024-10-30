@@ -35,6 +35,10 @@ const ProductCard = (props: ProductCardProps) => {
                             <Image src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                                 alt="Image"
                                 className="rounded-xl"
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                style={{ width: '100%', height: 'auto' }}
                             />
                             <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">
                                 <div className="flex justify-center gap-x-6">

@@ -21,6 +21,10 @@ const CarouselProduct = (props: CarouselProductProps) => {
                                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                                 alt="Image product"
                                 className="rounded-lg"
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                style={{ width: '100%', height: 'auto' }}
                             />
                         </CarouselItem>
                     ))}

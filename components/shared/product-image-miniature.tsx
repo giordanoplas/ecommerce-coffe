@@ -16,6 +16,10 @@ const ProductImageMiniature = (props: ProductImageMiniatureProps) => {
                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
                 alt="Product"
                 className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32"
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
             />
         </div>
     )
