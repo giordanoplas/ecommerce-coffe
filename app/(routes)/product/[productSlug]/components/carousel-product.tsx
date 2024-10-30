@@ -1,4 +1,5 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import Image from "next/image";
 
 interface CarouselProductProps {
     images: [{
@@ -16,7 +17,7 @@ const CarouselProduct = (props: CarouselProductProps) => {
                 <CarouselContent>
                     {images.map((image) => (
                         <CarouselItem key={image.id} className="flex justify-center">
-                            <img
+                            <Image
                                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                                 alt="Image product"
                                 className="rounded-lg"

@@ -1,4 +1,5 @@
 import { ProductType } from "@/types/product";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface ProductImageMiniatureProps {
@@ -11,7 +12,7 @@ const ProductImageMiniature = (props: ProductImageMiniatureProps) => {
 
     return (
         <div onClick={() => router.push(`/product/${product.slug}`)} className="cursor-pointer">
-            <img
+            <Image
                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
                 alt="Product"
                 className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32"

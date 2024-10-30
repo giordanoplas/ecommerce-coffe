@@ -3,7 +3,7 @@
 import { useGetCategoryProduct } from "@/api/getCategoryProduct"
 import { Separator } from "@/components/ui/separator";
 import { ResponseType } from "@/types/response";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import FiltersControlsCategory from "./components/filters-controls-category";
 import SkeletonSchema from "@/components/skeletonSchema";
 import ProductCard from "./components/product-card";
@@ -15,8 +15,7 @@ export default function Page() {
     const { categorySlug } = params;
     const { result, loading }: ResponseType = useGetCategoryProduct(categorySlug);
     const [filterOrigin, setFilterOrigin] = useState('');
-    const [filterTaste, setFilterTaste] = useState('');
-    const router = useRouter();
+    //const [setFilterTaste] = useState('');
 
     const filteredProducts = result !== null && !loading && (
         filterOrigin === '' ? result : result.filter((product: ProductType) => product.origin === filterOrigin)
@@ -33,7 +32,7 @@ export default function Page() {
             <div className="sm:flex sm:justify-between">
                 <FiltersControlsCategory
                     setFilterOrigin={setFilterOrigin}
-                    setFilterTaste={setFilterTaste}
+                    /*setFilterTaste={setFilterTaste}*/
                 />
 
                 <div className="grid gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10">

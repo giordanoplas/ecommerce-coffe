@@ -11,11 +11,12 @@ import { useRouter } from "next/navigation";
 import IconButton from "./icon-button";
 import { useCart } from "@/hooks/use-cart";
 import ProductTasteOrigin from "./shared/product-taste-origin";
+import Image from "next/image";
 
 const FeaturedProducts = () => {
     const { loading, result }: ResponseType = useGetFeaturedProducts();
     const router = useRouter();
-    const { addItem, items } = useCart();
+    const { addItem/*, items*/ } = useCart();
 
     return (
         <div className="max-w-6xl py-4 mx-auto sm-py-16 sm:px-24">
@@ -27,14 +28,14 @@ const FeaturedProducts = () => {
                     )}
                     {result != null && (
                         result.map((product: ProductType) => {
-                            const { id, slug, images, productName, taste, origin } = product;
+                            const { id, slug, images, productName/*, taste, origin*/ } = product;
 
                             return (
                                 <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/3 group">
                                     <div className="p-1">
                                         <Card className="py-4 border border-gray-200 shadow-none">
                                             <CardContent className="relative flex items-center justify-center px-6 py-2">
-                                                <img
+                                                <Image
                                                     src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${images[0].url}`}
                                                     alt="Image featured" 
                                                 />

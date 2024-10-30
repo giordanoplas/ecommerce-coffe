@@ -7,6 +7,7 @@ import { ProductType } from "@/types/product";
 
 import IconButton from "@/components/icon-button";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Image from "next/image";
 
 type ProductCardProps = {
     product: ProductType
@@ -31,7 +32,7 @@ const ProductCard = (props: ProductCardProps) => {
                 <CarouselContent>
                     {product.images.map((image) => (
                         <CarouselItem key={image.id} className="group">
-                            <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
+                            <Image src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                                 alt="Image"
                                 className="rounded-xl"
                             />
