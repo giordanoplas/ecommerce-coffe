@@ -13,11 +13,12 @@ const CarouselProduct = (props: CarouselProductProps) => {
 
     return (
         <div className="sm:px-16">
-            <Carousel>
-                <CarouselContent>
-                    {images.map((image) => (
-                        <CarouselItem key={image.id} className="flex justify-center">
-                            <Image
+            {images !== null && images.length > 0 &&
+                <Carousel>
+                    <CarouselContent>
+                        {images.map((image) => (
+                            <CarouselItem key={image.id} className="flex justify-center">
+                                {/*<Image
                                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.url}`}
                                 alt="Image product"
                                 className="rounded-lg"
@@ -25,13 +26,23 @@ const CarouselProduct = (props: CarouselProductProps) => {
                                 height={0}
                                 sizes="100vw"
                                 style={{ width: '100%', height: 'auto' }}
-                            />
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-            </Carousel>
+                            />*/}
+                                <Image
+                                    src={`${image.url}`}
+                                    alt="Image product"
+                                    className="rounded-lg"
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }}
+                                />
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </Carousel>
+            }
         </div>
     );
 }
